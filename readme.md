@@ -1,4 +1,4 @@
-## Laravel Envoy Deploy
+## Simmone Deployer
 
 This repository includes an Envoy.blade.php script that is designed to provide a very basic "zero-downtime" deployment option using the open-source [Laravel Envoy](http://laravel.com/docs/5.2/envoy) tool. This repository is heavily inspired by [envoy-deploy](https://github.com/papertank/envoy-deploy)
 
@@ -96,6 +96,7 @@ Please submit improvements and fixes :)
 
 ## Credits
 
+ * [Papertank Limited](http://papertank.co.uk)
  * [Servers for Hackers](https://serversforhackers.com/video/enhancing-envoy-deployment) for inspiration
  * [@noeldiaz on Laracasts](https://laracasts.com/@noeldiaz) for deployment cleanups idea
  * [Harmen Stoppels](https://serversforhackers.com/video/enhancing-envoy-deployment#comment-1900893160) for cloning HEAD only
@@ -103,4 +104,4 @@ Please submit improvements and fixes :)
 
 ## Author
 
-[Papertank Limited](http://papertank.co.uk)
+
