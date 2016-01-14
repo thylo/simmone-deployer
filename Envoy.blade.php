@@ -61,14 +61,26 @@
 	echo "Environment file set up";
 	cd {{ $release }};
 	composer install --no-interaction;
+	echo "Composer dependencies installed";
 	php artisan migrate --env={{ $env }} --force --no-interaction;
+	echo "Migration complete";
 	rm {{ $path }}/current;
 	ln -s {{ $release }} {{ $path }}/current;
+	echo "Relinking completed";
+	cd {{ $path }}/current
+	php artisan view:clear
+	echo "View cache cleared"
 	echo "Deployment ({{ $date }}) complete";
+@endtask
+
+@task('flush', ['confirm'=>true])
+	cd {{ $path }};
+	find . -maxdepth 1 -name "20*" -mmin +2 | xargs rm -Rf;
+	echo "Flushed up old deployments";
 @endtask
 
 @task('cleanup')
 	cd {{ $path }};
-	find . -maxdepth 1 -name "20*" -mmin +2880 | head -n 5 | xargs rm -Rf;
+	find . -maxdepth 1 -name "20*" -mmin +20 | head -n 5 | xargs rm -Rf;
 	echo "Cleaned up old deployments";
 @endtask
